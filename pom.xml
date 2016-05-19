@@ -521,8 +521,37 @@
     </connection>
     <url>https://git-wip-us.apache.org/repos/asf?p=bigtop.git</url>
   </scm>
+  <repositories>
+    <repository>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>central</id>
+      <name>libs-release</name>
+      <url>http://artifactory.tetrationanalytics.com:8081/artifactory/libs-release</url>
+    </repository>
+    <repository>
+      <snapshots />
+      <id>snapshots</id>
+      <name>libs-snapshot</name>
+      <url>http://artifactory.tetrationanalytics.com:8081/artifactory/libs-snapshot</url>
+    </repository>
+  </repositories>
+  <pluginRepositories>
+    <pluginRepository>
+      <snapshots />
+      <id>snapshots</id>
+      <name>plugins-snapshot</name>
+      <url>http://artifactory.tetrationanalytics.com:8081/artifactory/plugins-snapshot</url>
+    </pluginRepository>
+  </pluginRepositories>
 
   <distributionManagement>
+    <repository>
+      <id>central</id>
+      <name>artifactory.tetrationanalytics.com-releases</name>
+      <url>http://artifactory.tetrationanalytics.com:8081/artifactory/libs-release-local</url>
+    </repository>
     <site>
       <id>apache.website</id>
       <url>scm:svn:https://svn.apache.org/repos/infra/websites/staging/bigtop/trunk/content</url>
