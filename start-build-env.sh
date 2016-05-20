@@ -15,6 +15,23 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# The following script adds a docker container running centos using VirtualBox
+#  docker-machine create --driver virtualbox bigtop
+#  docker-machine start bigtop
+#  eval $(docker-machine env bigtop)
+
+# After running this script, do ensure the following:
+# a) packages.gradle -
+#    change APACHE_ARCHIVE: "http://192.168.1.3:8000" to point to any directory
+#    which has the tar.gz organized for the locally built hbase tar images
+# At this point you can skip to c) if you are running on the centos VM within VPN.
+# b) copy ~/bigtop to ~/bigtop2
+# c) ./gradlew hbase-rpm
+# RPMs will be in output directory
+# THis needs the artifactory to be available with the version of jars which
+# you need. Can be used for patch testing purposes.
+
+
 set -e               # exit on error
 
 cd "$(dirname "$0")" # connect to root
@@ -38,15 +55,18 @@ RUN yum -y install unzip
 RUN yum -y install rpm-build
 RUN yum -y install maven
 RUN yum -y install java-1.7.0-openjdk-devel.x86_64
+ENV JAVA_HOME="/usr/lib/jvm/java-1.7.0-openjdk/"
 UserSpecificDocker
 
 # By mapping the .m2 directory you can do an mvn install from
 # within the container and use the result on your normal
 # system.  And this also is a significant speedup in subsequent
 # builds because the dependencies are downloaded only once.
+# -v "${HOME}/.m2:/home/${USER_NAME}/.m2" \
+# Add the above line if you want to use artifactory.tetration...
+# Does not work within VPN yet,, so kind of no-op for now.
 docker run --rm=true -t -i \
-  -v "${PWD}/.:/home/${USER_NAME}/bigtop" \
+  -v "${PWD}/.:/home/${USER_NAME}/bigtop:z" \
   -w "/home/${USER_NAME}/bigtop" \
-  -v "${HOME}/.m2:/home/${USER_NAME}/.m2" \
   -u "${USER_NAME}" \
   "bigtop-build-${USER_NAME}"
