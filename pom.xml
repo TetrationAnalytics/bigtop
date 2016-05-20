@@ -550,7 +550,7 @@
     <repository>
       <id>central</id>
       <name>artifactory.tetrationanalytics.com-releases</name>
-      <url>http://artifactory.tetrationanalytics.com:8081/artifactory/libs-release-local</url>
+      <url>http://artifactory.tetrationanalytics.com:8081/artifactory/ext-release-local</url>
     </repository>
     <site>
       <id>apache.website</id>
