@@ -18,7 +18,7 @@ class bigtop_toolchain::renv {
   require bigtop_toolchain::packages
 
   case $operatingsystem{
-    /(?i:(centos|fedora|redhat|Amazon))/: {
+    /(?i:(centos|fedora|redhat|Amazon|almalinux))/: {
       $pkgs = [
         "R",
         "R-devel",
