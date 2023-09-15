@@ -11,3 +11,18 @@ index e76347962b2..af1c586b8c6 100644
      <!-- the version of Hadoop declared in the version resources; can be overridden
      so that Hadoop 3.x can declare itself a 2.x artifact. -->
      <declared.hadoop.version>${hadoop.version}</declared.hadoop.version>
+diff --git a/hadoop-yarn-project/hadoop-yarn/hadoop-yarn-ui/pom.xml b/hadoop-yarn-project/hadoop-yarn/hadoop-yarn-ui/pom.xml
+index ac8ee619b31..b0b23d21faa 100644
+--- a/hadoop-yarn-project/hadoop-yarn/hadoop-yarn-ui/pom.xml
++++ b/hadoop-yarn-project/hadoop-yarn/hadoop-yarn-ui/pom.xml
+@@ -143,8 +143,8 @@
+                   <goal>install-node-and-yarn</goal>
+                 </goals>
+                 <configuration>
+-                  <nodeVersion>v5.12.0</nodeVersion>
+-                  <yarnVersion>v0.21.3</yarnVersion>
++                  <nodeVersion>v12.22.1</nodeVersion>
++                  <yarnVersion>v1.22.5</yarnVersion>
+                 </configuration>
+               </execution>
+               <execution>
