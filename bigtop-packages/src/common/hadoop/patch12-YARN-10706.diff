@@ -1,0 +1,13 @@
+diff --git a/hadoop-project/pom.xml b/hadoop-project/pom.xml
+index e76347962b2..af1c586b8c6 100644
+--- a/hadoop-project/pom.xml
++++ b/hadoop-project/pom.xml
+@@ -175,7 +175,7 @@
+     <surefire.fork.timeout>900</surefire.fork.timeout>
+     <aws-java-sdk.version>1.11.563</aws-java-sdk.version>
+     <hsqldb.version>2.3.4</hsqldb.version>
+-    <frontend-maven-plugin.version>1.5</frontend-maven-plugin.version>
++    <frontend-maven-plugin.version>1.11.2</frontend-maven-plugin.version>
+     <!-- the version of Hadoop declared in the version resources; can be overridden
+     so that Hadoop 3.x can declare itself a 2.x artifact. -->
+     <declared.hadoop.version>${hadoop.version}</declared.hadoop.version>
